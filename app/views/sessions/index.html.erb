@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <th>
+      Current
+    </th>
+    <th>
+      Latitude
+    </th>
+    <th>
+      Longitude
+    </th>
+    <th>
+      Logout
+    </th>
+  </thead>
+  <tbody>
+    <% @sessions.each do |session| %>
+    <tr>
+      <td><%= session == current_session ? "CURRENT" : "" %></td>
+      <td><%= session.latitude %></td>
+      <td><%= session.longitude %></td>
+      <td><%= button_to "Logout", session_url(session), method: "delete" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
