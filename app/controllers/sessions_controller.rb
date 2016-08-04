@@ -1,10 +1,14 @@
 class SessionsController < ApplicationController
 
-  before_action :check_login, except: [:destroy, :index]
+  before_action :check_login, except: [:destroy, :index, :show]
   before_action :authenticate, only: [:index]
 
   def new
 
+  end
+
+  def show
+    @session = Session.find(params[:id])
   end
 
   def create

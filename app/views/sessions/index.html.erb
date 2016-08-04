@@ -1,6 +1,9 @@
 <table>
   <thead>
     <th>
+      link
+    </th>
+    <th>
       Current
     </th>
     <th>
@@ -16,6 +19,9 @@
   <tbody>
     <% @sessions.each do |session| %>
     <tr>
+      <td>
+        <%= link_to "Map", session %>
+      </td>
       <td><%= session == current_session ? "CURRENT" : "" %></td>
       <td><%= session.latitude %></td>
       <td><%= session.longitude %></td>
