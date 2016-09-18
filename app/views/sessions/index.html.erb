@@ -1,0 +1,37 @@
+<table>
+  <thead>
+    <th>
+      link
+    </th>
+    <th>
+      Current
+    </th>
+    <th>
+      Latitude
+    </th>
+    <th>
+      Longitude
+    </th>
+    <th>
+      Logout
+    </th>
+  </thead>
+  <tbody>
+    <% @sessions.each do |session| %>
+    <tr>
+      <td>
+        <%= link_to "Map", session %>
+      </td>
+      <td><%= session == current_session ? "CURRENT" : "" %></td>
+      <td><%= session.latitude %></td>
+      <td><%= session.longitude %></td>
+      <td><%= button_to "Logout", session_url(session), method: "delete" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+  <% content_for :footer do %>
+      <p>This is the session index page<p>
+  <% end %>
+
+</table>
